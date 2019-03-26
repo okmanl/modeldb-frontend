@@ -7,6 +7,8 @@ const app = express();
 const JSON = require('circular-json');
 const api = require('./api');
 
+app.use(express.static('client/build'));
+
 app.get('/api/getProjects', (req, res) => {
   api.getFromAPI('/v1/project/getProjects', req.headers)
   .then(response => {
@@ -32,15 +34,9 @@ app.get('/api/getExperimentRunsInProject', (req, res) => {
   })
 });
 
-app.get('*', (req, res) => {
-  tmpPath = req.path;
-
-  if (tmpPath == '/') {
-    tmpPath = '/index.html';
-  }
-
+app.get('*', (_, res) => {
   // console.log(req);
-  res.sendFile(path.join(__dirname + '/client/build' + tmpPath));
+  res.sendFile(path.join(__dirname + '/client/build' + '/index.html'));
 });
 
 const port = process.env.PORT || 3000;
