@@ -1,8 +1,15 @@
 {
+  "scripts": {
+    "pretty": "prettier --write \"client/src/**/*.{ts*,css,js*}\""
+  },
   "dependencies": {
     "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
     "circular-json": "^0.5.9",
     "dotenv": "^7.0.0",
     "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "pretty": "^2.0.0"
   }
 }

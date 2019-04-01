@@ -6,11 +6,13 @@ const path = require('path');
 const app = express();
 const api = require('./api');
 const JSON = require('circular-json');
+var bodyParser = require('body-parser')
 
+app.use(bodyParser.json());
 app.use(express.static('client/build'));
 
 app.get('/api/getProjects', (req, res) => {
-  api.getFromAPI('/v1/project/getProjects', req.headers)
+  api.getFromAPI('/v1/project/getProjects', 'get', req.headers)
     .then(response => {
       res.send(response.data);
     })
@@ -23,6 +25,7 @@ app.get('/api/getProjects', (req, res) => {
 app.get('/api/getExperimentRunsInProject', (req, res) => {
   api.getFromAPI(
     '/v1/experiment-run/getExperimentRunsInProject',
+    'get',
     req.headers,
     req.query) // also req.params for post
     .then(response => {
