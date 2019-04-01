@@ -10,6 +10,6 @@
     "express": "^4.16.4"
   },
   "devDependencies": {
-    "pretty": "^2.0.0"
+    "prettier": "^1.15.3"
   }
 }
