@@ -2,7 +2,6 @@ import ArtifactsColDef from './Artifacts';
 import styles from './ColumnDefs.module.css';
 import DatasetsColDef from './Datasets';
 import HyperparamsColDef from './Hyperparams';
-// import ObservationsColDef from './Observations';
 import MetricsColDef from './Metrics';
 import ModelRecordColDef from './ModelRecord';
 import SummaryColDef from './Summary';
@@ -15,9 +14,9 @@ export const defaultColDefinitions = {
 export const returnColumnDefs = (updatedConfig: any) => {
   return [
     {
-      headerName: 'IDs',
+      headerName: 'Model',
       field: 'data',
-      width: 190,
+      width: 200,
       cellRendererFramework: ModelRecordColDef,
       cellClass: [styles.cell, styles.modelDescription],
       hide: !updatedConfig.get('id').checked,
@@ -26,7 +25,7 @@ export const returnColumnDefs = (updatedConfig: any) => {
       headerName: 'Summary',
       field: 'data',
       cellRendererFramework: SummaryColDef,
-      width: 180,
+      width: 200,
       cellClass: styles.cell,
       hide: !updatedConfig.get('summary').checked,
     },
@@ -34,7 +33,7 @@ export const returnColumnDefs = (updatedConfig: any) => {
       headerName: 'Metrics',
       field: 'metrics',
       cellRendererFramework: MetricsColDef,
-      width: 200,
+      width: 220,
       cellClass: styles.cell,
       hide: !updatedConfig.get('metrics').checked,
     },
@@ -50,7 +49,7 @@ export const returnColumnDefs = (updatedConfig: any) => {
       headerName: 'Artifacts',
       field: 'artifacts',
       cellRendererFramework: ArtifactsColDef,
-      width: 260,
+      width: 200,
       cellClass: styles.cell,
       hide: !updatedConfig.get('artifacts').checked,
     },
@@ -62,13 +61,5 @@ export const returnColumnDefs = (updatedConfig: any) => {
       cellClass: styles.cell,
       hide: !updatedConfig.get('datasets').checked,
     },
-    // {
-    //   headerName: 'Observations',
-    //   field: 'observations',
-    //   cellRendererFramework: ObservationsColDef,
-    //   width: 200,
-    //   cellClass: styles.cell,
-    //   hide: !updatedConfig.get('observations').checked
-    // }
   ];
 };

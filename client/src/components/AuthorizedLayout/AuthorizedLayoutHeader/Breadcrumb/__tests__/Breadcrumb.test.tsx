@@ -74,17 +74,6 @@ describe('(components/Breadcrumb)', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('should render "projects > ${project name}" breadcrumbs on charts page', () => {
-    const component = makeShallowComponent(
-      {
-        projects: [mockProject],
-      },
-      routes.charts.getRedirectPath({ projectId: mockProject.id })
-    );
-
-    expect(component).toMatchSnapshot();
-  });
-
   it('should render "projects > ${project name} > ${model record name}" breadcrumbs on charts page', () => {
     const component = makeShallowComponent(
       {

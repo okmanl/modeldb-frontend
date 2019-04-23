@@ -1,12 +1,14 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+
+import { DeployButton } from 'components/Deploy';
 import routes from 'routes';
 
 import styles from './ColumnDefs.module.css';
 
 class ModelRecordColDef extends React.Component<any> {
   public render() {
-    const { id, projectId, experimentId } = this.props.data;
+    const { id, projectId, name } = this.props.data;
     return (
       <div className={styles.param_cell}>
         <Link
@@ -16,20 +18,16 @@ class ModelRecordColDef extends React.Component<any> {
             modelRecordId: id,
           })}
         >
-          <strong>Model ID</strong> {' : '}
-          {`${id.slice(0, 4)}...${id.slice(-4)}`}
+          <div className={styles.modelName_block}>
+            <div className={styles.model_name}>
+              {name} &nbsp;
+              <i className="fa fa-external-link" />
+            </div>
+          </div>
         </Link>
-        <div className={styles.experiment_link}>
-          <span className={styles.parma_link_label}> Project ID:</span>
-          <span className={styles.parma_link_value}>
-            {projectId.slice(0, 4) + '..'}
-          </span>
-        </div>
-        <div className={styles.experiment_link}>
-          <span className={styles.parma_link_label}> Experiment ID:</span>
-          <span className={styles.parma_link_value}>
-            {experimentId.slice(0, 4) + '..'}
-          </span>
+
+        <div className={styles.deploy_link}>
+          <DeployButton modelId={id} />
         </div>
       </div>
     );

@@ -8,8 +8,10 @@ import { Link } from 'react-router-dom';
 import User from 'models/User';
 import routes from 'routes';
 import { IApplicationState, IConnectedReduxProps } from 'store/store';
+import { selectCurrentUser } from 'store/user';
 import { logoutUser } from 'store/user/actions';
 
+import Icon from 'components/shared/Icon/Icon';
 import styles from './UserBar.module.css';
 
 interface ILocalState {
@@ -32,40 +34,40 @@ class UserBar extends React.Component<AllProps, ILocalState> {
   public render() {
     const user = this.props.user;
 
+    if (!user) {
+      return null;
+    }
+
     return (
       <div className={styles.root}>
         <div className={styles.user_bar} onClick={this.toggleMenu}>
           <Avatar
-            name={user ? user.name : ''}
+            name={user.getNameOrEmail()}
             color="var(--bg-color3)"
             fgColor="black"
             round={true}
             size="36"
             textSizeRatio={36 / 16}
             style={{ fontFamily: 'Roboto', fontWeight: '400' }}
-            src={user ? user.picture : ''}
+            src={user.picture}
           />
-          <div className={styles.menu_arrow}>
-            <i className="fa fa-caret-down" />
-          </div>
+          <Icon type="caret-down" className={styles.menu_arrow} />
         </div>
         {this.state.isOpened ? (
           <div className={styles.drop_down}>
             <div className={styles.menu_header}>
               <Avatar
-                name={user ? user.name : ''}
+                name={user.getNameOrEmail()}
                 color="var(--bg-color2)"
                 fgColor="var(--bg-color3)"
                 round={true}
                 size="48"
                 textSizeRatio={36 / 16}
                 style={{ fontFamily: 'Roboto', fontWeight: '400' }}
-                src={user ? user.picture : ''}
+                src={user.picture}
               />
-              <div>
-                <div className={styles.menu_header_user_name}>
-                  {user ? user.name : ''}
-                </div>
+              <div className={styles.menu_header_user_name}>
+                {user.getNameOrEmail()}
               </div>
             </div>
             <div className={styles.menu_item}>
@@ -109,8 +111,8 @@ class UserBar extends React.Component<AllProps, ILocalState> {
   }
 }
 
-const mapStateToProps = ({ layout }: IApplicationState) => ({
-  user: layout.data.user,
+const mapStateToProps = (state: IApplicationState): IPropsFromState => ({
+  user: selectCurrentUser(state),
 });
 
 export default connect(mapStateToProps)(onClickOutside(UserBar));

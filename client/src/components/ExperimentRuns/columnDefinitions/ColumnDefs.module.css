@@ -1,5 +1,4 @@
 .cell {
-  margin-top: 1em;
   border: none !important;
   outline: none;
 }
@@ -7,6 +6,7 @@
 .summary_cell {
   line-height: 15px;
   color: rgb(112, 112, 112);
+  white-space: pre-wrap;
 }
 
 .param_draggable {
@@ -20,7 +20,7 @@
 .param_grid_hyp {
   line-height: 20px !important;
   display: grid;
-  grid-template-columns: 100px 50px;
+  grid-template-columns: 90px 60px;
   grid-gap: 10px;
   white-space: pre-wrap;
 }
@@ -28,7 +28,7 @@
 .param_grid_metric {
   line-height: 20px !important;
   display: grid;
-  grid-template-columns: 100px 50px;
+  grid-template-columns: 90px 60px;
   grid-gap: 10px;
   white-space: pre-wrap;
 }
@@ -56,6 +56,7 @@
 }
 
 .model_link {
+  display: block;
   color: var(--main-color2);
   text-decoration: none;
   line-height: 30px;
@@ -72,7 +73,7 @@
   margin-top: 5px;
 }
 
-.experiment_link {
+/* .experiment_link {
   text-decoration: none;
   line-height: 30px;
   border: solid 1px lightgrey;
@@ -81,15 +82,55 @@
   text-align: center;
   float: none;
   margin: 5px 0;
+} */
+
+/* new from model record */
+.experiment_link {
+  font-size: 13px;
+  text-decoration: none;
+  line-height: 30px;
+  border: solid 1px lightgrey;
+  border-radius: 3px;
+  padding: 0 5px;
+  max-width: 150px;
+  text-align: center;
+  float: none;
+  margin: 10px 0;
 }
 
-.parma_link_label {
-  color: rgb(141, 141, 141);
+.modelId_link {
+  font-size: 13px;
+  text-decoration: none;
+  line-height: 30px;
+  border: solid 1px lightgrey;
+  border-radius: 3px;
+  padding: 0 5px;
+  max-width: 150px;
+  text-align: center;
+  float: none;
+  margin: 5px 0;
+  transition: border 100ms;
+}
+
+.modelId_link:hover {
+  background-color: #e6e6e6;
 }
 
 .parma_link_value {
+  font-size: 0.8em;
+  color: rgb(75, 75, 75);
+}
+
+.parma_link_label {
   font-weight: 500;
   color: var(--text-color1);
+}
+/* end model record */
+
+.deploy_link {
+  text-align: center;
+  float: center;
+  margin: 10px 0;
 }
 
 .modelDescription {
@@ -104,25 +145,35 @@
 .artifact_wrapper {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: 10px 70px 84px;
+  grid-template-columns: 10px 120px;
   background-color: #fff;
   color: #444;
-  line-height: 16px !important;
-  margin-bottom: 15px;
-  padding: 10px 20px 10px 10px;
+  line-height: 12px !important;
+  margin-bottom: 7px;
+  padding: 7px 15px 7px 7px;
   border: solid 1px lightgrey;
   border-radius: 5px;
-  white-space: pre-wrap;
   font-size: 0.9em;
+  max-width: 150px;
+  transition: border 100ms;
 }
 
 .artifact_wrapper:hover {
   border: solid 1px var(--main-color2);
   cursor: pointer;
-  /* -webkit-box-shadow: 0 5px 25px -5px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 5px 25px -5px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 25px -5px rgba(0, 0, 0, 0.2);
-  border: solid 1px #fff; */
+}
+
+.artifactKey {
+  color: rgb(112, 112, 112);
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.artifact_item {
+  margin-bottom: 15px;
+}
+.artifact_item:last-child {
+  margin-bottom: 0;
 }
 
 .box {
@@ -141,7 +192,13 @@
   word-break: break-all;
   word-wrap: break-word;
   font-size: 0.9em;
+  color: var(--main-color2);
 }
+.path_label {
+  color: rgb(112, 112, 112);
+  font-family: sans-serif;
+}
+
 .type {
   grid-column: 2/3;
   grid-row: 1;
@@ -156,4 +213,48 @@
 .notif {
   grid-column: 1/2;
   grid-row: 1;
+}
+.notif_icon {
+  font-size: 13px;
+  color: var(--main-color2);
+}
+
+.dataset_wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 10px 120px;
+  background-color: #fff;
+  color: #444;
+  line-height: 12px !important;
+  margin-bottom: 7px;
+  padding: 7px 15px 7px 7px;
+  border: solid 1px lightgrey;
+  border-radius: 5px;
+  font-size: 0.9em;
+  max-width: 150px;
+}
+
+.model_name {
+  color: var(--main-color2);
+  line-height: 16px;
+  max-width: 134px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: -webkit-pre-wrap;
+  word-break: break-all;
+  white-space: normal;
+  margin: 5px 0;
+}
+
+.modelName_block {
+  padding-bottom: 10px;
+}
+
+.modelName_block:hover {
+  cursor: pointer;
+}
+
+.codeVersion_block,
+.expId_block {
+  margin-bottom: 10px;
 }
