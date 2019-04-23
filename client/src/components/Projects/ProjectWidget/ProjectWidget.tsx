@@ -1,16 +1,16 @@
 import cn from 'classnames';
 import * as React from 'react';
 import Avatar from 'react-avatar';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { selectIsLoadingProjectOwner, fetchProjectOwner } from 'store/projects';
+import { Link } from 'react-router-dom';
 
+import Preloader from 'components/shared/Preloader/Preloader';
 import Tag from 'components/shared/TagBlock/TagProject';
 import { Project } from 'models/Project';
 import routes from 'routes';
-import { IConnectedReduxProps, IApplicationState } from 'store/store';
+import { fetchProjectOwner, selectIsLoadingProjectOwner } from 'store/projects';
+import { IApplicationState, IConnectedReduxProps } from 'store/store';
 
-import Preloader from 'components/shared/Preloader/Preloader';
 import styles from './ProjectWidget.module.css';
 
 interface ILocalProps {

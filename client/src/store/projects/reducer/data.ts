@@ -1,14 +1,15 @@
 import { Reducer } from 'redux';
 
+import cloneClassInstance from 'utils/cloneClassInstance';
+
 import {
   FeatureAction,
   IProjectsState,
+  loadProjectOwnerActionTypes,
   loadProjectsActionTypes,
   updateProjectActionTypes,
   updateProjectByIdActionTypes,
-  loadProjectOwnerActionTypes,
 } from '../types';
-import cloneClassInstance from 'utils/cloneClassInstance';
 
 const initial: IProjectsState['data'] = {
   projects: null,

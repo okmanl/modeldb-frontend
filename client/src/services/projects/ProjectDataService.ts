@@ -4,10 +4,10 @@ import { JsonConvert } from 'json2typescript';
 import { IFilterData } from 'models/Filters';
 import { Project } from 'models/Project';
 import User from 'models/User';
+import { convertServerUser } from 'services/converters/user';
 
 import { BaseDataService } from '../BaseDataService';
 import { IProjectDataService } from './IProjectDataService';
-import { convertServerUser } from 'services/converters/user';
 
 export default class ProjectDataService extends BaseDataService
   implements IProjectDataService {
