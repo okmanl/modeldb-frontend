@@ -19,3 +19,11 @@ export const selectProject = (state: IApplicationState, id: string) =>
 // todo maybe rename?
 export const checkProjectById = (state: IApplicationState, projectId: string) =>
   (selectProjects(state) || []).some(project => project.id === projectId);
+
+export const selectIsLoadingProjectOwner = (
+  state: IApplicationState,
+  projectId: string
+) => {
+  const comm = selectCommunications(state).loadingProjectOwner[projectId];
+  return Boolean(comm && comm.isRequesting);
+};

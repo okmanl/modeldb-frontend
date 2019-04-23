@@ -3,6 +3,7 @@ import { JsonConvert } from 'json2typescript';
 
 import { IFilterData } from 'models/Filters';
 import { Project } from 'models/Project';
+import User from 'models/User';
 
 import { BaseDataService } from '../BaseDataService';
 import { IProjectDataService } from './IProjectDataService';
@@ -18,6 +19,26 @@ export default class ProjectDataService extends BaseDataService
       '/v1/modeldb/project/getProjects',
       this.responseToProjectConfig(filter)
     );
+  }
+
+  public loadProjectOwner(userId: string): AxiosPromise<User> {
+    return axios.get<User>(
+      '/uac-proxy/v1/uac/getUser',
+      this.getLoadProjectOwnerConfig(userId)
+    );
+  }
+
+  private getLoadProjectOwnerConfig(userId: string): AxiosRequestConfig {
+    return {
+      params: { user_id: userId },
+      transformResponse: [
+        (data: any) => {
+          const user = new User(data.user_id || (data as any).sub, data.email);
+          user.name = data.full_name;
+          return user;
+        },
+      ],
+    };
   }
 
   private responseToProjectConfig(filters?: IFilterData[]): AxiosRequestConfig {

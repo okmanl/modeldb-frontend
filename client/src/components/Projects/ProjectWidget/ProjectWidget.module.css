@@ -1,7 +1,7 @@
 .project_widget {
   display: grid;
   grid-template-columns: 310px auto auto 180px;
-  grid-template-rows: 50px auto auto 48px;
+  grid-template-rows: 50px auto auto;
   padding: 30px;
   font-size: 13px;
   color: var(--fr-color3);
@@ -62,7 +62,6 @@
 
 .tags_block {
   grid-area: tags;
-  margin-bottom: -6px;
 }
 
 .tag {
@@ -113,7 +112,7 @@
   grid-area: author_block;
   grid-template-rows: 36px auto;
 }
-.loading_collaborators_with_owner .author_block {
+.loading_owner .author_block {
   display: block;
 }
 
@@ -132,4 +131,7 @@
 .model_count_block {
   grid-area: count_block;
   align-self: end;
+}
+
+.loading_owner {
 }
