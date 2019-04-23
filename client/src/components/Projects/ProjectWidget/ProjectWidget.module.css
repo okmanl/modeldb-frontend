@@ -113,6 +113,9 @@
   grid-area: author_block;
   grid-template-rows: 36px auto;
 }
+.loading_collaborators_with_owner .author_block {
+  display: block;
+}
 
 .author_name {
   grid-area: author_name;

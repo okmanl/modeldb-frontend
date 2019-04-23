@@ -1,11 +1,16 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
+import Preloader from 'components/shared/Preloader/Preloader';
 import { FilterContextPool } from 'models/FilterContextPool';
 import { PropertyType } from 'models/Filters';
 import { Project } from 'models/Project';
 import routes from 'routes';
-import { fetchProjects } from 'store/projects';
+import {
+  fetchProjects,
+  selectIsLoadingProjects,
+  selectProjects,
+} from 'store/projects';
 import { IApplicationState, IConnectedReduxProps } from 'store/store';
 
 import styles from './Projects.module.css';
@@ -49,23 +54,30 @@ FilterContextPool.registerContext({
 
 class Projects extends React.Component<AllProps> {
   public render() {
+    const { loading, data } = this.props;
     return (
       <div className={styles.projects}>
         <div className={styles.widgets_list}>
-          {this.props.data
-            ? this.props.data.map((proj, i) => (
+          {(() => {
+            if (loading) {
+              return <Preloader variant="dots" />;
+            }
+            if (data && data.length !== 0) {
+              return data.map((proj, i) => (
                 <ProjectWidget project={proj} key={i} />
-              ))
-            : ''}
+              ));
+            }
+            return null;
+          })()}
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ projects }: IApplicationState) => ({
-  data: projects.data.projects,
-  loading: projects.communications.loadingProjects.isRequesting,
+const mapStateToProps = (state: IApplicationState): IPropsFromState => ({
+  data: selectProjects(state),
+  loading: selectIsLoadingProjects(state),
 });
 
 export default connect(mapStateToProps)(Projects);
