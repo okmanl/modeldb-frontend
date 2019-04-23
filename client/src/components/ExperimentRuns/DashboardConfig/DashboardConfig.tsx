@@ -38,8 +38,12 @@ class DashboardConfig extends React.Component<AllProps, ILocalState> {
     const { columnConfig } = this.props;
     return (
       <div className={styles.root}>
-        <div className={styles.user_bar} onClick={this.toggleMenu}>
-          <Icon type="cog" className={styles.dashboard_cog} />
+        <div className={styles.user_bar}>
+          <Icon
+            type="cog"
+            className={styles.dashboard_cog}
+            onClick={this.toggleMenu}
+          />
         </div>
         {this.state.isOpened ? (
           <div className={styles.drop_down}>
