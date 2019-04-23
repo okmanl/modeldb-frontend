@@ -6,7 +6,6 @@ import {
   withRouter,
 } from 'react-router-dom';
 
-import Callback from 'components/Callback/Callback';
 import Login from 'components/Login/Login';
 import routes from 'routes';
 
@@ -23,7 +22,6 @@ class AnonymousLayout extends React.Component<RouteComponentProps> {
         </div>
         <div className={styles.content}>
           <Switch>
-            <Route path={routes.callback.getPath()} component={Callback} />
             <Route component={Login} />
           </Switch>
         </div>
