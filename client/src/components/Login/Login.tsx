@@ -9,11 +9,7 @@ import { authenticateUser } from 'store/user';
 import logo from './images/logo.svg';
 import styles from './Login.module.css';
 
-interface IPropsFromState {
-  user?: User | null;
-}
-
-type AllProps = IPropsFromState & IConnectedReduxProps;
+type AllProps = IConnectedReduxProps;
 
 class Login extends React.Component<AllProps> {
   public render() {
@@ -50,10 +46,4 @@ class Login extends React.Component<AllProps> {
   }
 }
 
-const mapStateToProps = ({ layout }: IApplicationState) => ({
-  user: layout.user,
-});
-
-export default connect<IPropsFromState, {}, {}, IApplicationState>(
-  mapStateToProps
-)(Login);
+export default connect(null)(Login);

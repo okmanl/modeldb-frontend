@@ -1,0 +1,287 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`(components/ModelRecord) should render artifacts record 1`] = `
+<Record
+  additionalContainerClassName="record_artifacts"
+  header="Artifacts"
+>
+  <div
+    key="0"
+  >
+    <RenderModelMeta
+      label="validation_plot"
+    >
+      <ShowContentBasedOnUrl
+        path="../output/val_obs_11.png"
+      />
+    </RenderModelMeta>
+  </div>
+  <div
+    key="1"
+  >
+    <RenderModelMeta
+      label="model"
+    >
+      <ShowContentBasedOnUrl
+        path="../output/tensorflow-basic_11.hdf5"
+      />
+    </RenderModelMeta>
+  </div>
+</Record>
+`;
+
+exports[`(components/ModelRecord) should render datasets record 1`] = `
+<Record
+  additionalContainerClassName="record_datasets"
+  header="Datasets"
+>
+  <div
+    key="0"
+  >
+    <RenderModelMeta
+      label="train_data"
+    >
+      <ShowContentBasedOnUrl
+        path="../data/mnist/train.npz"
+      />
+    </RenderModelMeta>
+  </div>
+</Record>
+`;
+
+exports[`(components/ModelRecord) should render deploy info record 1`] = `
+<Record
+  additionalContainerClassName="record_deployInfo"
+  header="Deploy info"
+>
+  <Connect(DeployButton)
+    modelId="556c26a1-781b-420f-9343-77cad7c22f9e"
+  />
+  <Connect(DeployManager) />
+</Record>
+`;
+
+exports[`(components/ModelRecord) should render hyperparameters record 1`] = `
+<Record
+  additionalContainerClassName="record_hyperparameters"
+  header="Hyperparameters"
+>
+  <div
+    key="0"
+  >
+    <RenderModelMeta
+      label="hidden_size"
+      value="1024"
+    />
+  </div>
+  <div
+    key="1"
+  >
+    <RenderModelMeta
+      label="dropout"
+      value="0.4"
+    />
+  </div>
+  <div
+    key="2"
+  >
+    <RenderModelMeta
+      label="optimizer"
+      value="adam"
+    />
+  </div>
+  <div
+    key="3"
+  >
+    <RenderModelMeta
+      label="batch_size"
+      value="51257889"
+    />
+  </div>
+  <div
+    key="4"
+  >
+    <RenderModelMeta
+      label="num_epochs"
+      value="4"
+    />
+  </div>
+  <div
+    key="5"
+  >
+    <RenderModelMeta
+      label="validation_split"
+      value="0.1"
+    />
+  </div>
+</Record>
+`;
+
+exports[`(components/ModelRecord) should render metrics record 1`] = `
+<Record
+  additionalContainerClassName="record_metrics"
+  header="Metrics"
+>
+  <div
+    key="0"
+  >
+    <RenderModelMeta
+      label="train_loss"
+      value="0.18684466613531112"
+    />
+  </div>
+  <div
+    key="1"
+  >
+    <RenderModelMeta
+      label="train_acc"
+      value="0.9489"
+    />
+  </div>
+</Record>
+`;
+
+exports[`(components/ModelRecord) should render summary 1`] = `
+<div
+  className="record_summary"
+>
+  <div
+    className="record_summary_main"
+  >
+    <div
+      className="record_label"
+    >
+      Name
+    </div>
+    <div
+      className="record_name"
+    >
+      Run 11
+    </div>
+    <br />
+    <div>
+      <div
+        className="record_label"
+      >
+        Tags
+      </div>
+      <div>
+        <div
+          className="tags"
+          key="0"
+        >
+          <span
+            className="staticTag"
+          >
+            enhancement
+          </span>
+        </div>
+        <div
+          className="tags"
+          key="1"
+        >
+          <span
+            className="staticTag"
+          >
+            obsolete
+          </span>
+        </div>
+        <div
+          className="tags"
+          key="2"
+        >
+          <span
+            className="staticTag"
+          >
+            debug
+          </span>
+        </div>
+        <div
+          className="tags"
+          key="3"
+        >
+          <span
+            className="staticTag"
+          >
+            demo
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="record_summary_meta"
+  >
+    <RenderModelMeta
+      label="Id"
+      value="556c26a1-781b-420f-9343-77cad7c22f9e"
+    />
+    <RenderModelMeta
+      label="Experiment"
+    />
+    <RenderModelMeta
+      label="Project"
+    />
+  </div>
+</div>
+`;
+
+exports[`(components/ModelRecord) when deploy status is deployed should render data statistics information when data statistics is loaded 1`] = `
+<Record
+  additionalContainerClassName="record_dataBehavior"
+  header="Data behavior"
+>
+  <DeployDataChart
+    height={400}
+    marginBottom={40}
+    marginLeft={60}
+    marginRight={60}
+    marginTop={60}
+    modelId="556c26a1-781b-420f-9343-77cad7c22f9e"
+    width={600}
+  />
+</Record>
+`;
+
+exports[`(components/ModelRecord) when deploy status is deployed should render message that there is not deploy info in the time window when serviceStatics is undefined 1`] = `
+<div
+  className="notDeployedMsg notDeployedMsg_noInfoInTheTimeWindow"
+>
+  <Icon
+    type="exclamation-triangle"
+  />
+  <span>
+    No monitoring information in the time window considered
+  </span>
+</div>
+`;
+
+exports[`(components/ModelRecord) when deploy status is deployed should render message that there is not deploy info in the time window when serviceStatics.time is undefined 1`] = `
+<div
+  className="notDeployedMsg notDeployedMsg_noInfoInTheTimeWindow"
+>
+  <Icon
+    type="exclamation-triangle"
+  />
+  <span>
+    No monitoring information in the time window considered
+  </span>
+</div>
+`;
+
+exports[`(components/ModelRecord) when deploy status is deployed should render service statistics information when service statistics is loaded 1`] = `
+<Record
+  additionalContainerClassName="record_serviceBehaviour"
+  header="Service behavior"
+>
+  <Connect(DeployServiceChart)
+    height={400}
+    marginBottom={80}
+    marginLeft={80}
+    marginRight={80}
+    marginTop={40}
+    modelId="556c26a1-781b-420f-9343-77cad7c22f9e"
+    width={600}
+  />
+</Record>
+`;

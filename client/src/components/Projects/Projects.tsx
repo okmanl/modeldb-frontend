@@ -64,8 +64,8 @@ class Projects extends React.Component<AllProps> {
 }
 
 const mapStateToProps = ({ projects }: IApplicationState) => ({
-  data: projects.data,
-  loading: projects.loading,
+  data: projects.data.projects,
+  loading: projects.communications.loadingProjects.isRequesting,
 });
 
 export default connect(mapStateToProps)(Projects);

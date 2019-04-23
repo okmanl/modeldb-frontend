@@ -1,7 +1,9 @@
 import { bind } from 'decko';
 import * as React from 'react';
 
-import { IFilterData, PropertyType } from 'models/Filters';
+import Icon from 'components/shared/Icon/Icon';
+import { ComparisonType, IFilterData, PropertyType } from 'models/Filters';
+import { numberTo4Decimal } from 'utils/MapperConverters/NumberFormatter';
 
 import MetricFilterEditor from '../MetricFilterEditor/MetricFilterEditor';
 import NumberFilterEditor from '../NumberFilterEditor/NumberFilterEditor';
@@ -29,18 +31,13 @@ export default class AppliedFilterItem extends React.Component<
       <div className={styles.root}>
         <div className={styles.ctrl}>
           <div className={styles.remove_button} onClick={this.onClickRemove}>
-            {/* <i className="fa fa-filter" aria-hidden="true" /> */}x
+            x
           </div>
           <div className={styles.filter_text}>
             {this.getFormatedFilterName(this.props.data)}
           </div>
           <div className={styles.edit_button} onClick={this.onClickShowEditor}>
-            <i
-              className={
-                this.state.isEditorShown ? 'fa fa-caret-up' : 'fa fa-caret-down'
-              }
-              aria-hidden="true"
-            />
+            <Icon type={this.state.isEditorShown ? 'caret-up' : 'caret-down'} />
           </div>
         </div>
         {this.state.isEditorShown && (
@@ -76,7 +73,20 @@ export default class AppliedFilterItem extends React.Component<
     }
 
     if (filter.value !== undefined) {
-      result = `${result}: ${filter.value}`;
+      if (filter.type == PropertyType.METRIC) {
+        let adjustedVal = numberTo4Decimal(filter.value).toString();
+        if (adjustedVal == '0') adjustedVal = filter.value.toExponential();
+        let comparison = '';
+        if (filter.comparisonType == ComparisonType.MORE) comparison = '>';
+        else if (filter.comparisonType == ComparisonType.EQUALS) {
+          comparison = '=';
+        } else if (filter.comparisonType == ComparisonType.LESS) {
+          comparison = '<';
+        }
+        result = `${result} ${comparison} ${adjustedVal}`;
+      } else {
+        result = `${result}: ${filter.value}`;
+      }
     }
 
     return result;

@@ -1,4 +1,4 @@
-.content {
+.root {
   font-size: 16px;
   line-height: 19px;
   display: flex;
@@ -11,6 +11,7 @@
 
 .arrow {
   margin: 0 9.5px;
+  font-size: 14px;
   color: var(--grey-light);
 }
 

@@ -1,13 +1,13 @@
 import { IAuthenticationService } from './auth/IAuthenticationService';
 import MockAuthenticationService from './auth/MockAuthenticationService';
-import ExperimentRunsDataService from './ExperimentRunsDataService';
+import { ISearchAndFilterService } from './filter/ISearchAndFilterService';
 import MockSFService from './filter/MockSFService';
-import { IExperimentRunsDataService } from './IExperimentRunsDataService';
-import { IProjectDataService } from './IProjectDataService';
-import ISearchAndFilterService from './ISearchAndFilterService';
-import { MockExperimentRunsDataService } from './mocks/MockExperimentRunsDataService';
-import { MockProjectDataService } from './mocks/MockProjectDataService';
-import { ProjectDataService } from './ProjectDataService';
+import ExperimentRunsDataService from './experimentRuns/ExperimentRunsDataService';
+import { IExperimentRunsDataService } from './experimentRuns/IExperimentRunsDataService';
+import MockExperimentRunsDataService from './experimentRuns/MockExperimentRunsDataService';
+import { IProjectDataService } from './projects/IProjectDataService';
+import MockProjectDataService from './projects/MockProjectDataService';
+import ProjectDataService from './projects/ProjectDataService';
 
 export default class ServiceFactory {
   public static getProjectsService(): IProjectDataService {

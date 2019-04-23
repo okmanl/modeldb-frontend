@@ -2,36 +2,49 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 
-import loader from 'components/images/loader.gif';
-import tagStyles from 'components/TagBlock/TagBlock.module.css';
+import Preloader from 'components/shared/Preloader/Preloader';
+import tagStyles from 'components/shared/TagBlock/TagBlock.module.css';
 import { IArtifact } from 'models/Artifact';
 import { IHyperparameter } from 'models/HyperParameters';
 import { IMetric } from 'models/Metrics';
 import ModelRecord from 'models/ModelRecord';
 import routes, { GetRouteParams } from 'routes';
-import { fetchModelRecord } from 'store/model-record';
-import { IApplicationState, IConnectedReduxProps } from 'store/store';
+import {
+  fetchModelRecord,
+  selectIsLoadingModelRecord,
+  selectModelRecord,
+} from 'store/model-record';
+import { IApplicationState } from 'store/store';
 
+import { bindActionCreators, Dispatch } from 'redux';
 import styles from './ModelRecord.module.css';
 import ShowContentBasedOnUrl from './ShowContentBasedOnUrl/ShowContentBasedOnUrl';
 
 type IUrlProps = GetRouteParams<typeof routes.modelRecord>;
 
 interface IPropsFromState {
-  data?: ModelRecord | null;
-  loading: boolean;
+  data: ModelRecord | null;
+  loadingModelRecord: boolean;
 }
 
-type AllProps = RouteComponentProps<IUrlProps> &
-  IPropsFromState &
-  IConnectedReduxProps;
+interface IActionProps {
+  fetchModelRecord: typeof fetchModelRecord;
+}
 
-class ModelRecordLayout extends React.Component<AllProps> {
+type AllProps = RouteComponentProps<IUrlProps> & IPropsFromState & IActionProps;
+
+class ModelRecordView extends React.PureComponent<AllProps> {
+  public componentDidMount() {
+    this.props.fetchModelRecord(this.props.match.params.modelRecordId);
+  }
+
   public render() {
-    const { data, loading } = this.props;
+    const { data, loadingModelRecord: loading } = this.props;
 
     return loading ? (
-      <img src={loader} className={styles.loader} />
+      <div className={styles.loader}>
+        <Preloader variant="dots" />
+      </div>
     ) : data ? (
       <div className={styles.model_layout}>
         <div className={styles.record_summary}>
@@ -39,125 +52,173 @@ class ModelRecordLayout extends React.Component<AllProps> {
             <div className={styles.record_label}>Name</div>
             <div className={styles.record_name}>{data.name}</div>
             <br />
-            <div className={styles.record_label}>Tags</div>
-            <div>
-              {data.tags &&
-                data.tags.map((value: string, key: number) => {
-                  return (
-                    <div className={styles.tags} key={key}>
-                      <span className={tagStyles.staticTag}>{value}</span>
-                    </div>
-                  );
-                })}
-            </div>
+            {data.tags && data.tags.length > 0 && (
+              <div>
+                <div className={styles.record_label}>Tags</div>
+                <div>
+                  {data.tags.map((value: string, key: number) => {
+                    return (
+                      <div className={styles.tags} key={key}>
+                        <span className={tagStyles.staticTag}>{value}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
           <div className={styles.record_summary_meta}>
-            <div className={styles.experiment_link}>
-              <span className={styles.parma_link_label}> Model ID:</span>{' '}
-              <span className={styles.parma_link_value}>
-                {data.id.slice(0, 4) + '..'}
-              </span>
-            </div>
-            <div className={styles.experiment_link}>
-              <span className={styles.parma_link_label}> Project ID:</span>{' '}
-              <span className={styles.parma_link_value}>
-                {data.projectId.slice(0, 4) + '..'}
-              </span>
-            </div>
-            <div className={styles.experiment_link}>
-              <span className={styles.parma_link_label}> Experiment ID:</span>{' '}
-              <span className={styles.parma_link_value}>
-                {data.experimentId.slice(0, 4) + '..'}
-              </span>
-            </div>
+            <this.RenderModelMeta label="Id" value={data.id} />
+            <this.RenderModelMeta
+              label="Experiment"
+              value={data.experimentId}
+            />
+            <this.RenderModelMeta label="Project" value={data.projectId} />
           </div>
         </div>
-        {this.renderTextRecord('Code version', data.codeVersion)}
-
-        {data.hyperparameters &&
-          this.renderListRecord(
-            'Hyperparameters',
-            data.hyperparameters.map((value: IHyperparameter, key: number) => {
+        {data.codeVersion! && (
+          <this.Record
+            header="Code version"
+            additionalContainerClassName={styles.record_codeVersion}
+          >
+            {data.codeVersion}
+          </this.Record>
+        )}
+        {data.hyperparameters && data.hyperparameters.length > 0 && (
+          <this.Record
+            header="Hyperparameters"
+            additionalContainerClassName={styles.record_hyperparameters}
+          >
+            {data.hyperparameters.map((value: IHyperparameter, key: number) => {
               return (
                 <div key={key}>
-                  {value.key}: {value.value}
+                  <this.RenderModelMeta label={value.key} value={value.value} />
                 </div>
               );
-            })
-          )}
-        {data.metrics &&
-          this.renderListRecord(
-            'Metrics',
-            data.metrics.map((value: IMetric, key: number) => {
+            })}
+          </this.Record>
+        )}
+        {data.metrics && data.metrics.length > 0 && (
+          <this.Record
+            header="Metrics"
+            additionalContainerClassName={styles.record_metrics}
+          >
+            {data.metrics.map((value: IMetric, key: number) => {
               return (
                 <div key={key}>
-                  {value.key}: {value.value}
+                  <this.RenderModelMeta label={value.key} value={value.value} />
                 </div>
               );
-            })
-          )}
-        {data.artifacts &&
-          this.renderListRecord(
-            'Artifacts',
-            data.artifacts.map((value: IArtifact, key: number) => {
+            })}
+          </this.Record>
+        )}
+        {data.artifacts && data.artifacts.length > 0 && (
+          <this.Record
+            header="Artifacts"
+            additionalContainerClassName={styles.record_artifacts}
+          >
+            {data.artifacts.map((value: IArtifact, key: number) => {
               return (
                 <div key={key}>
-                  {value.key}: <ShowContentBasedOnUrl path={value.path} />
+                  <this.RenderModelMeta
+                    label={value.key}
+                    children={<ShowContentBasedOnUrl path={value.path} />}
+                  />
                 </div>
               );
-            })
-          )}
+            })}
+          </this.Record>
+        )}
+        {data.datasets && data.datasets.length > 0 && (
+          <this.Record
+            header="Datasets"
+            additionalContainerClassName={styles.record_datasets}
+          >
+            {data.datasets.map((value: IArtifact, key: number) => {
+              return (
+                <div key={key}>
+                  <this.RenderModelMeta
+                    label={value.key}
+                    children={<ShowContentBasedOnUrl path={value.path} />}
+                  />
+                </div>
+              );
+            })}
+          </this.Record>
+        )}
+        )}
       </div>
     ) : (
       ''
     );
   }
 
-  public componentDidMount() {
-    this.props.dispatch(
-      fetchModelRecord(this.props.match.params.modelRecordId)
-    );
-  }
-
-  private renderRecord(
-    header: string,
-    content: JSX.Element[],
-    additionalValueClassName: string = ''
-  ) {
-    return content && content.length > 0 ? (
-      <div className={styles.record}>
-        <div className={styles.record_header}>{header}</div>
+  // tslint:disable-next-line:function-name
+  private Record(props: {
+    header: string;
+    children?: React.ReactNode;
+    additionalValueClassName?: string;
+    additionalContainerClassName?: string;
+    additionalHeaderClassName?: string;
+  }) {
+    const {
+      header,
+      children,
+      additionalValueClassName,
+      additionalContainerClassName,
+      additionalHeaderClassName,
+    } = props;
+    return (
+      <div className={`${styles.record} ${additionalContainerClassName}`}>
+        <div className={`${styles.record_header} ${additionalHeaderClassName}`}>
+          {header}
+        </div>
         <div className={`${styles.record_value} ${additionalValueClassName}`}>
-          {content}
+          {children}
         </div>
       </div>
-    ) : (
-      ''
     );
   }
-
-  private renderTextRecord(
-    header: string,
-    value: string,
-    additionalValueClassName: string = ''
-  ) {
-    return value
-      ? this.renderRecord(
-          header,
-          [<span key={0}>{value}</span>],
-          additionalValueClassName
-        )
-      : '';
-  }
-
-  private renderListRecord(header: string, content: JSX.Element[]) {
-    return this.renderRecord(header, content, styles.list);
+  // tslint:disable-next-line:function-name
+  private RenderModelMeta(props: {
+    label: string;
+    value?: string | number;
+    children?: React.ReactNode;
+  }) {
+    const { label, value, children } = props;
+    return (
+      <div className={styles.meta_block}>
+        <div className={styles.meta_label}>{`${label} :`}</div>
+        {value ? (
+          <div className={styles.meta_value}>{value}</div>
+        ) : (
+          <div>{children}</div>
+        )}
+      </div>
+    );
   }
 }
 
-const mapStateToProps = ({ modelRecord }: IApplicationState) => ({
-  data: modelRecord.data,
-  loading: modelRecord.loading,
-});
+const mapStateToProps = (state: IApplicationState): IPropsFromState => {
+  const modelRecord = selectModelRecord(state);
+  return {
+    data: modelRecord,
+    loadingModelRecord: selectIsLoadingModelRecord(state),
+  };
+};
 
-export default connect(mapStateToProps)(ModelRecordLayout);
+const mapDispatchToProps = (dispatch: Dispatch): IActionProps => {
+  return bindActionCreators(
+    {
+      fetchModelRecord,
+    },
+    dispatch
+  );
+};
+
+export type IModelRecordProps = AllProps;
+export { ModelRecordView };
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ModelRecordView);

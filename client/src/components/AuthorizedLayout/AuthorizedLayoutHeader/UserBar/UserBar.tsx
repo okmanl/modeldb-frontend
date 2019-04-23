@@ -110,7 +110,7 @@ class UserBar extends React.Component<AllProps, ILocalState> {
 }
 
 const mapStateToProps = ({ layout }: IApplicationState) => ({
-  user: layout.user,
+  user: layout.data.user,
 });
 
 export default connect(mapStateToProps)(onClickOutside(UserBar));

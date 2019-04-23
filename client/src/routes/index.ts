@@ -1,19 +1,21 @@
-import makeRoute, { IRoute } from './makeRoute';
+import makeRoute, { IRoute as _IRoute } from './makeRoute';
+
+export type IRoute<T> = _IRoute<T>;
 
 const routes = {
   mainPage: makeRoute({ getPath: () => '/' }),
   callback: makeRoute({ getPath: () => '/callback' }),
   settings: makeRoute({ getPath: () => '/settings' }),
 
-  expirementRuns: makeRoute({
+  experimentRuns: makeRoute({
     getPath: () => '/project/:projectId/exp-runs',
     getRedirectPath: (p: { projectId: string }) =>
       `/project/${p.projectId}/exp-runs`,
   }),
   modelRecord: makeRoute({
-    getPath: () => '/project/:projectId/exp-run/:modelRecordId',
+    getPath: () => '/project/:projectId/exp-runs/:modelRecordId',
     getRedirectPath: (p: { projectId: string; modelRecordId: string }) =>
-      `/project/${p.projectId}/exp-run/${p.modelRecordId}`,
+      `/project/${p.projectId}/exp-runs/${p.modelRecordId}`,
   }),
 };
 

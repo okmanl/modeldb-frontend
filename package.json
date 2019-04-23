@@ -10,6 +10,7 @@
     "express": "^4.16.4"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.7",
     "prettier": "^1.15.3"
   }
 }

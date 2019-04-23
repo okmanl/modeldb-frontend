@@ -1,24 +1,38 @@
 import { action } from 'typesafe-actions';
 
 import { IFilterData } from 'models/Filters';
-import ServiceFactory from 'services/ServiceFactory';
+import { Project } from 'models/Project';
 import { ActionResult } from 'store/store';
 
-import { fetchProjectsAction, fetchProjectsActionTypes } from './types';
+import {
+  ILoadProjectsActions,
+  IUpdateProjectByIdAction,
+  loadProjectsActionTypes,
+  updateProjectByIdActionTypes,
+} from './types';
 
 export const fetchProjects = (
   filters?: IFilterData[]
-): ActionResult<void, fetchProjectsAction> => async dispatch => {
-  dispatch(action(fetchProjectsActionTypes.FETCH_PROJECTS_REQUEST));
+): ActionResult<void, ILoadProjectsActions> => async (
+  dispatch,
+  _,
+  { ServiceFactory }
+) => {
+  dispatch(action(loadProjectsActionTypes.REQUEST));
 
   await ServiceFactory.getProjectsService()
     .getProjects(filters)
     .then(res => {
-      dispatch(
-        action(fetchProjectsActionTypes.FETCH_PROJECTS_SUCCESS, res.data)
-      );
+      dispatch(action(loadProjectsActionTypes.SUCCESS, res.data));
     })
-    .catch(() => {
-      dispatch(action(fetchProjectsActionTypes.FETCH_PROJECTS_REQUEST));
+    .catch(err => {
+      dispatch(action(loadProjectsActionTypes.FAILURE, err as string));
     });
 };
+
+export const updateProjectById = (
+  project: Project
+): IUpdateProjectByIdAction => ({
+  type: updateProjectByIdActionTypes.UPDATE_PROJECT,
+  payload: project,
+});

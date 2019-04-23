@@ -1,7 +1,8 @@
+export const expRunsProjectIdMock = 'b328df27-f286-4850-8d68-841d2e1a43ba';
 export const expRunsMocks = [
   {
     id: '556c26a1-781b-420f-9343-77cad7c22f9e',
-    project_id: 'b328df27-f286-4850-8d68-841d2e1a43ba',
+    project_id: expRunsProjectIdMock,
     experiment_id: 'b3a95aa5-42c8-4438-9713-bac96745f8fe',
     name: 'Run 11',
     description:
@@ -113,7 +114,7 @@ export const expRunsMocks = [
   },
   {
     id: 'f750d1cd-5b72-460c-a8f6-44fae44a68d2',
-    project_id: 'b328df27-f286-4850-8d68-841d2e1a43ba',
+    project_id: expRunsProjectIdMock,
     experiment_id: 'b3a95aa5-42c8-4438-9713-bac96745f8fe',
     name: 'Run 10',
     description:
@@ -225,7 +226,7 @@ export const expRunsMocks = [
   },
   {
     id: '2895b8c7-9b7f-4259-ac96-303ed5182261',
-    project_id: 'b328df27-f286-4850-8d68-841d2e1a43ba',
+    project_id: expRunsProjectIdMock,
     experiment_id: 'b3a95aa5-42c8-4438-9713-bac96745f8fe',
     name: 'Run 9',
     description:
@@ -332,7 +333,7 @@ export const expRunsMocks = [
   },
   {
     id: 'b27ac35b-dbe7-464f-8ada-08082bd196dc',
-    project_id: 'b328df27-f286-4850-8d68-841d2e1a43ba',
+    project_id: expRunsProjectIdMock,
     experiment_id: 'b3a95aa5-42c8-4438-9713-bac96745f8fe',
     name: 'Run 8',
     description:
@@ -444,7 +445,7 @@ export const expRunsMocks = [
   },
   {
     id: '45f3c50f-ff5c-4c11-9ef1-674e227e0b7f',
-    project_id: 'b328df27-f286-4850-8d68-841d2e1a43ba',
+    project_id: expRunsProjectIdMock,
     experiment_id: 'b3a95aa5-42c8-4438-9713-bac96745f8fe',
     name: 'Run 7',
     description:
@@ -551,7 +552,7 @@ export const expRunsMocks = [
   },
   {
     id: 'bcf261be-4ee2-4f1a-81fb-975a621cc497',
-    project_id: 'b328df27-f286-4850-8d68-841d2e1a43ba',
+    project_id: expRunsProjectIdMock,
     experiment_id: 'b3a95aa5-42c8-4438-9713-bac96745f8fe',
     name: 'Run 6',
     description:
@@ -663,7 +664,7 @@ export const expRunsMocks = [
   },
   {
     id: '38b39520-b5c5-43d2-ad73-73e6152e55e6',
-    project_id: 'b328df27-f286-4850-8d68-841d2e1a43ba',
+    project_id: expRunsProjectIdMock,
     experiment_id: 'b3a95aa5-42c8-4438-9713-bac96745f8fe',
     name: 'Run 5',
     description:
@@ -775,7 +776,7 @@ export const expRunsMocks = [
   },
   {
     id: 'acf6b98e-6ab7-44e5-ac4c-8411235ecf41',
-    project_id: 'b328df27-f286-4850-8d68-841d2e1a43ba',
+    project_id: expRunsProjectIdMock,
     experiment_id: 'b3a95aa5-42c8-4438-9713-bac96745f8fe',
     name: 'Run 4',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed',
@@ -886,7 +887,7 @@ export const expRunsMocks = [
   },
   {
     id: 'aeb2f61f-8171-4739-a5dc-75d2b7a8a8a4',
-    project_id: 'b328df27-f286-4850-8d68-841d2e1a43ba',
+    project_id: expRunsProjectIdMock,
     experiment_id: 'b3a95aa5-42c8-4438-9713-bac96745f8fe',
     name: 'Run 3',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed',
@@ -997,7 +998,7 @@ export const expRunsMocks = [
   },
   {
     id: 'f295c344-bd61-46fe-a1fd-758345287bba',
-    project_id: 'b328df27-f286-4850-8d68-841d2e1a43ba',
+    project_id: expRunsProjectIdMock,
     experiment_id: 'b3a95aa5-42c8-4438-9713-bac96745f8fe',
     name: 'Run 2',
     description:
@@ -1109,7 +1110,7 @@ export const expRunsMocks = [
   },
   {
     id: '64f6b3b9-84fc-4c05-93b6-1fb99e815e80',
-    project_id: 'b328df27-f286-4850-8d68-841d2e1a43ba',
+    project_id: expRunsProjectIdMock,
     experiment_id: 'b3a95aa5-42c8-4438-9713-bac96745f8fe',
     name: 'Run 1',
     description:
@@ -1221,7 +1222,7 @@ export const expRunsMocks = [
   },
   {
     id: '87744286-7523-48bf-afe4-17a2c0d210ec',
-    project_id: 'b328df27-f286-4850-8d68-841d2e1a43ba',
+    project_id: expRunsProjectIdMock,
     experiment_id: 'b3a95aa5-42c8-4438-9713-bac96745f8fe',
     name: 'Run 0',
     description:

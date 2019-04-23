@@ -55,7 +55,7 @@ class AuthorizedLayout extends React.Component<RouteComponentProps> {
             component={Projects}
           />
           <RouteWithFilter
-            path={routes.expirementRuns.getPath()}
+            path={routes.experimentRuns.getPath()}
             component={ExperimentRuns}
           />
           <RouteWithFilter

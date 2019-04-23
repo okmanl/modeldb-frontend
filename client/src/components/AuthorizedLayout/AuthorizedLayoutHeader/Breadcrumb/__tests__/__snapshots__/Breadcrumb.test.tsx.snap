@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`(components/Breadcrumb) should render "projects > \${project name} > \${model record name}" breadcrumbs on charts page 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="breadcrumb_item"
+  >
+    <Link
+      className="link"
+      replace={false}
+      to="/"
+    >
+      projects
+    </Link>
+  </div>
+  <Icon
+    className="arrow"
+    type="arrow-right"
+  />
+  <div
+    className="breadcrumb_item"
+  >
+    <Link
+      className="link"
+      replace={false}
+      to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs"
+    >
+      MNIST Multiclassification
+    </Link>
+  </div>
+  <Icon
+    className="arrow"
+    type="arrow-right"
+  />
+  <div
+    className="breadcrumb_item active_link"
+    key="2"
+  >
+    <Link
+      className="link"
+      replace={false}
+      to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs/556c26a1-781b-420f-9343-77cad7c22f9e"
+    >
+      Run 11
+    </Link>
+  </div>
+</div>
+`;
+
+exports[`(components/Breadcrumb) should render "projects > \${project name}" breadcrumbs on charts page 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="breadcrumb_item"
+  >
+    <Link
+      className="link"
+      replace={false}
+      to="/"
+    >
+      projects
+    </Link>
+  </div>
+  <Icon
+    className="arrow"
+    type="arrow-right"
+  />
+  <div
+    className="breadcrumb_item active_link"
+    key="1"
+  >
+    <Link
+      className="link"
+      replace={false}
+      to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/charts"
+    >
+      MNIST Multiclassification
+    </Link>
+  </div>
+</div>
+`;
+
+exports[`(components/Breadcrumb) should render "projects > \${project name}" breadcrumbs on experiment runs page 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="breadcrumb_item"
+  >
+    <Link
+      className="link"
+      replace={false}
+      to="/"
+    >
+      projects
+    </Link>
+  </div>
+  <Icon
+    className="arrow"
+    type="arrow-right"
+  />
+  <div
+    className="breadcrumb_item active_link"
+    key="1"
+  >
+    <Link
+      className="link"
+      replace={false}
+      to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs"
+    >
+      MNIST Multiclassification
+    </Link>
+  </div>
+</div>
+`;
+
+exports[`(components/Breadcrumb) should render "projects" breadcrumb on projects page 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="breadcrumb_item active_link"
+    key="0"
+  >
+    <Link
+      className="link"
+      replace={false}
+      to="/"
+    >
+      projects
+    </Link>
+  </div>
+</div>
+`;
