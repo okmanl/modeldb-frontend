@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { RouteComponentProps, withRouter } from 'react-router';
+import { bindActionCreators, Dispatch } from 'redux';
 
 import AnonymousLayout from 'components/AnonymousLayout/AnonymousLayout';
 import AuthorizedLayout from 'components/AuthorizedLayout/AuthorizedLayout';
-import GlobalPreloader from 'components/GlobalPreloader/GlobalPreloader';
-import { IApplicationState, IConnectedReduxProps } from 'store/store';
+import GlobalPreloader from 'components/shared/GlobalPreloader/GlobalPreloader';
+import { IApplicationState } from 'store/store';
 import {
   checkUserAuthentication,
   selectIsCheckingUserAuthentication,
@@ -17,12 +18,16 @@ interface IPropsFromState {
   isCheckingUserAuthentication: boolean;
 }
 
-// Create an intersection type of the component props and our Redux props.
-type AllProps = IPropsFromState & IConnectedReduxProps & RouteComponentProps;
+interface IActionProps {
+  checkUserAuthentication: typeof checkUserAuthentication;
+}
 
-class App extends React.Component<AllProps> {
+// Create an intersection type of the component props and our Redux props.
+type AllProps = IPropsFromState & RouteComponentProps & IActionProps;
+
+class App extends React.PureComponent<AllProps> {
   public componentDidMount() {
-    this.props.dispatch(checkUserAuthentication());
+    this.props.checkUserAuthentication();
   }
 
   public render() {
@@ -39,4 +44,14 @@ const mapStateToProps = (state: IApplicationState): IPropsFromState => ({
   isCheckingUserAuthentication: selectIsCheckingUserAuthentication(state),
 });
 
-export default withRouter(connect(mapStateToProps)(App));
+const mapDispatchToProps = (dispatch: Dispatch): IActionProps =>
+  bindActionCreators({ checkUserAuthentication }, dispatch);
+
+export type IAppProps = AllProps;
+export { App };
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App)
+);
