@@ -4,25 +4,9 @@ import MockAdapter from 'axios-mock-adapter';
 import App from 'App/App';
 import Preloader from 'components/shared/Preloader/Preloader';
 import routes from 'routes';
-import {
-  convertServerDataStatisticsToClient,
-  convertServerServiceStatisticsToClient,
-} from 'services/converters/deploy';
-import {
-  mockServerDataStatistics,
-  mockServerServiceStatistics,
-} from 'services/mocks/deployMock';
 import { expRunsMocks } from 'services/mocks/expRunsMock';
 import { projectsMock } from 'services/mocks/projectsMock';
 import { mockServerUser } from 'services/mocks/user';
-import {
-  loadDataStatisticsActionTypes,
-  loadDeployStatusActionTypes,
-  loadServiceStatisticsActionTypes,
-  selectDataStatistics,
-  selectDeployStatusInfo,
-  selectServiceStatistics,
-} from 'store/deploy';
 import { loadExperimentRunsActionTypes } from 'store/experiment-runs';
 import { selectModelRecord } from 'store/model-record';
 import checkSuccessfullCommunication from 'utils/tests/integrations/checkSuccessfullCommunication';
@@ -57,12 +41,6 @@ describe('integration: (components/ModelRecord) ModelRecord', () => {
   mock
     .onGet(`/v1/deployment/status/${targetModelRecord.id}`)
     .reply(_ => [200, { status: 'live' }]);
-  mock
-    .onGet(`/v1/statistics/service/${targetModelRecord.id}/`)
-    .reply(_ => [200, mockServerServiceStatistics]);
-  mock
-    .onGet(`/v1/statistics/data/${targetModelRecord.id}/`)
-    .reply(_ => [200, mockServerDataStatistics]);
 
   jest.useFakeTimers();
 
@@ -74,25 +52,9 @@ describe('integration: (components/ModelRecord) ModelRecord', () => {
     await flushAllPromisesFor(wrapper);
 
     checkSuccessfullCommunication(loadExperimentRunsActionTypes, dispatchSpy);
-    checkSuccessfullCommunication(loadDeployStatusActionTypes, dispatchSpy);
-    checkSuccessfullCommunication(
-      loadServiceStatisticsActionTypes,
-      dispatchSpy
-    );
-    checkSuccessfullCommunication(loadDataStatisticsActionTypes, dispatchSpy);
 
     const state = store.getState();
     expect(selectModelRecord(state)).toBeTruthy();
-    expect(selectDeployStatusInfo(state, targetModelRecord.id)).toHaveProperty(
-      'status',
-      'deployed'
-    );
-    expect(selectServiceStatistics(state)).toEqual(
-      convertServerServiceStatisticsToClient(mockServerServiceStatistics)
-    );
-    expect(selectDataStatistics(state)).toEqual(
-      convertServerDataStatisticsToClient(mockServerDataStatistics)
-    );
 
     expect(
       wrapper.find(ModelRecord).find(`.${styles.model_layout}`)

@@ -146,7 +146,6 @@ class ModelRecordView extends React.PureComponent<AllProps> {
             })}
           </this.Record>
         )}
-        )}
       </div>
     ) : (
       ''
