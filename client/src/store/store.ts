@@ -3,6 +3,9 @@ import { History } from 'history';
 import { Action, AnyAction, combineReducers, Dispatch } from 'redux';
 import { ThunkAction } from 'redux-thunk';
 
+import { FilterContextPool } from 'models/FilterContextPool';
+import ServiceFactory from 'services/ServiceFactory';
+
 import {
   dashboardConfigReducer,
   IDashboardConfigState,
@@ -39,9 +42,14 @@ export const createRootReducer = (history: History) =>
     router: connectRouter(history),
   });
 
+export interface IThunkActionDependencies {
+  ServiceFactory: typeof ServiceFactory;
+  FilterContextPool: typeof FilterContextPool;
+}
+
 export type ActionResult<R = void, A extends Action = AnyAction> = ThunkAction<
   R,
   IApplicationState,
-  undefined,
+  IThunkActionDependencies,
   A
 >;
