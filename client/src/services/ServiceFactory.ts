@@ -1,10 +1,10 @@
 import { IAuthenticationService } from './auth/IAuthenticationService';
 import MockAuthenticationService from './auth/MockAuthenticationService';
-import { ISearchAndFilterService } from './filter/ISearchAndFilterService';
-import MockSFService from './filter/MockSFService';
 import ExperimentRunsDataService from './experimentRuns/ExperimentRunsDataService';
 import { IExperimentRunsDataService } from './experimentRuns/IExperimentRunsDataService';
 import MockExperimentRunsDataService from './experimentRuns/MockExperimentRunsDataService';
+import { ISearchAndFilterService } from './filter/ISearchAndFilterService';
+import MockSFService from './filter/MockSFService';
 import { IProjectDataService } from './projects/IProjectDataService';
 import MockProjectDataService from './projects/MockProjectDataService';
 import ProjectDataService from './projects/ProjectDataService';

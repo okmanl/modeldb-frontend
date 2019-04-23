@@ -59,7 +59,6 @@ class ProjectWidget extends React.Component<AllProps, ILocalState> {
                   src={project.Author.picture ? project.Author.picture : ''}
                 />
               </>
-              )}
             </div>
             <div className={styles.created_date_block}>
               <div className={styles.created_date}>

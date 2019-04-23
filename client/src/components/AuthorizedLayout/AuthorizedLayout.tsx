@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import routes from 'routes';
 
+import ExperimentRuns from '../ExperimentRuns/ExperimentRuns';
 import { FilterSelect } from '../FilterSelect/FilterSelect';
 import { GenericNotFound } from '../GenericNotFound/GenericNotFound';
 import ModelRecord from '../ModelRecord/ModelRecord';
@@ -53,6 +54,12 @@ class AuthorizedLayout extends React.Component<RouteComponentProps> {
             component={Projects}
           />
           <RouteWithFilter
+            exact={true}
+            path={routes.experimentRuns.getPath()}
+            component={ExperimentRuns}
+          />
+          <RouteWithFilter
+            exact={true}
             path={routes.modelRecord.getPath()}
             component={ModelRecord}
           />

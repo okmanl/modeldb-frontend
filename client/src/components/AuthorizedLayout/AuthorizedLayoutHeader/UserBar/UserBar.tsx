@@ -72,14 +72,6 @@ class UserBar extends React.Component<AllProps, ILocalState> {
             </div>
             <div className={styles.menu_item}>
               <Link
-                onClick={this.toggleMenu}
-                to={routes.settings.getRedirectPath({})}
-              >
-                Settings
-              </Link>
-            </div>
-            <div className={styles.menu_item}>
-              <Link
                 onClick={this.logout}
                 to={routes.mainPage.getRedirectPath({})}
               >

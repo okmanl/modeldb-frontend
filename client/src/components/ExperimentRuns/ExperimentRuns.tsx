@@ -8,10 +8,13 @@ import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 
 import Preloader from 'components/shared/Preloader/Preloader';
+import { FilterContextPool } from 'models/FilterContextPool';
+import { PropertyType } from 'models/Filters';
 import ModelRecord from 'models/ModelRecord';
 import routes, { GetRouteParams } from 'routes';
 import { IColumnConfig, selectColumnConfig } from 'store/dashboard-config';
 import {
+  fetchExperimentRuns,
   selectExperimentRuns,
   selectIsLoadingExperimentRuns,
 } from 'store/experiment-runs';
@@ -44,6 +47,39 @@ interface IOperator {
 export type AllProps = RouteComponentProps<IUrlProps> &
   IPropsFromState &
   IConnectedReduxProps;
+
+let currentProjectID: string;
+FilterContextPool.registerContext({
+  getMetadata: () => [
+    { propertyName: 'Name', type: PropertyType.STRING },
+    { propertyName: 'Tag', type: PropertyType.STRING },
+  ],
+  isFilteringSupport: true,
+  isValidLocation: (location: string) => {
+    const match = routes.experimentRuns.getMatch(location);
+    if (match) {
+      currentProjectID = match.projectId;
+      return true;
+    }
+    return false;
+  },
+  name: 'ModelRecord',
+  onApplyFilters: (filters, dispatch) => {
+    dispatch(fetchExperimentRuns(currentProjectID, filters));
+  },
+  onSearch: (text: string, dispatch) => {
+    dispatch(
+      fetchExperimentRuns(currentProjectID, [
+        {
+          invert: false,
+          name: 'Name',
+          type: PropertyType.STRING,
+          value: text,
+        },
+      ])
+    );
+  },
+});
 
 class ExperimentRuns extends React.PureComponent<AllProps> {
   private gridApi: any;
