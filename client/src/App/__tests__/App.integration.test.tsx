@@ -4,7 +4,7 @@ import MockAdapter from 'axios-mock-adapter';
 import AuthorizedLayout from 'components/AuthorizedLayout/AuthorizedLayout';
 import Login from 'components/Login/Login';
 import Projects from 'components/Projects/Projects';
-import { convertServerCurrentUser } from 'services/converters/user';
+import { convertServerUser } from 'services/converters/user';
 import { mockServerUser } from 'services/mocks/user';
 import {
   checkUserAuthenticationActionTypes,
@@ -37,9 +37,7 @@ describe('integration: (App) App', () => {
     const state = store.getState();
     expect(selectIsUserAuthenticated(state)).toBe(true);
     expect(selectIsCheckingUserAuthentication(state)).toBe(false);
-    expect(selectCurrentUser(state)).toEqual(
-      convertServerCurrentUser(mockServerUser)
-    );
+    expect(selectCurrentUser(state)).toEqual(convertServerUser(mockServerUser));
 
     expect(wrapper.find(AuthorizedLayout)).toHaveLength(1);
     expect(wrapper.find(Projects)).toHaveLength(1);

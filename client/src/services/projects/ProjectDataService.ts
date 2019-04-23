@@ -7,6 +7,7 @@ import User from 'models/User';
 
 import { BaseDataService } from '../BaseDataService';
 import { IProjectDataService } from './IProjectDataService';
+import { convertServerUser } from 'services/converters/user';
 
 export default class ProjectDataService extends BaseDataService
   implements IProjectDataService {
@@ -31,13 +32,7 @@ export default class ProjectDataService extends BaseDataService
   private getLoadProjectOwnerConfig(userId: string): AxiosRequestConfig {
     return {
       params: { user_id: userId },
-      transformResponse: [
-        (data: any) => {
-          const user = new User(data.user_id || (data as any).sub, data.email);
-          user.name = data.full_name;
-          return user;
-        },
-      ],
+      transformResponse: [convertServerUser],
     };
   }
 

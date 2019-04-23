@@ -1,3 +1,4 @@
+import Auth0AuthenticationService from './auth/Auth0AuthenticationService';
 import { IAuthenticationService } from './auth/IAuthenticationService';
 import MockAuthenticationService from './auth/MockAuthenticationService';
 import ExperimentRunsDataService from './experimentRuns/ExperimentRunsDataService';
@@ -25,6 +26,9 @@ export default class ServiceFactory {
   }
 
   public static getAuthenticationService(): IAuthenticationService {
+    if (JSON.parse(process.env.REACT_APP_USE_API_DATA)) {
+      return new Auth0AuthenticationService();
+    }
     return new MockAuthenticationService();
   }
 

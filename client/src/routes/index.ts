@@ -4,7 +4,6 @@ export type IRoute<T> = _IRoute<T>;
 
 const routes = {
   mainPage: makeRoute({ getPath: () => '/' }),
-  callback: makeRoute({ getPath: () => '/callback' }),
 
   experimentRuns: makeRoute({
     getPath: () => '/project/:projectId/exp-runs',

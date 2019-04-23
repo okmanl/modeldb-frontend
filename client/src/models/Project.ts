@@ -18,6 +18,7 @@ export class Project {
   public dateUpdated: Date = new Date();
   @JsonProperty('tags', [String], true)
   public tags: string[] = [];
+  @JsonProperty('owner', String, true)
   public authorId: string;
   private author: User = new User('', '');
 
