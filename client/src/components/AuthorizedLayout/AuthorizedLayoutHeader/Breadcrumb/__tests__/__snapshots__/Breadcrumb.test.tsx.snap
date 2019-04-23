@@ -1,137 +1,1591 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`(components/Breadcrumb) should render "projects > \${project name} > \${model record name}" breadcrumbs on charts page 1`] = `
-<div
-  className="root"
->
-  <div
-    className="breadcrumb_item"
-  >
-    <Link
-      className="link"
-      replace={false}
-      to="/"
-    >
-      projects
-    </Link>
-  </div>
-  <Icon
-    className="arrow"
-    type="arrow-right"
-  />
-  <div
-    className="breadcrumb_item"
-  >
-    <Link
-      className="link"
-      replace={false}
-      to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs"
-    >
-      MNIST Multiclassification
-    </Link>
-  </div>
-  <Icon
-    className="arrow"
-    type="arrow-right"
-  />
-  <div
-    className="breadcrumb_item active_link"
-    key="2"
-  >
-    <Link
-      className="link"
-      replace={false}
-      to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs/556c26a1-781b-420f-9343-77cad7c22f9e"
-    >
-      Run 11
-    </Link>
-  </div>
-</div>
-`;
-
-exports[`(components/Breadcrumb) should render "projects > \${project name}" breadcrumbs on charts page 1`] = `
-<div
-  className="root"
->
-  <div
-    className="breadcrumb_item"
-  >
-    <Link
-      className="link"
-      replace={false}
-      to="/"
-    >
-      projects
-    </Link>
-  </div>
-  <Icon
-    className="arrow"
-    type="arrow-right"
-  />
-  <div
-    className="breadcrumb_item active_link"
-    key="1"
-  >
-    <Link
-      className="link"
-      replace={false}
-      to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/charts"
-    >
-      MNIST Multiclassification
-    </Link>
-  </div>
-</div>
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Breadcrumb
+    experimentRuns={null}
+    history={
+      Object {
+        "listen": [MockFunction] {
+          "calls": Array [
+            Array [
+              [Function],
+            ],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        },
+        "location": Object {
+          "hash": "",
+          "key": "",
+          "pathname": "/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs/556c26a1-781b-420f-9343-77cad7c22f9e",
+          "search": "",
+          "state": "",
+        },
+      }
+    }
+    location={
+      Object {
+        "hash": "hash",
+        "key": "LocationKey",
+        "pathname": "Pathname",
+        "search": "Search",
+        "state": "LocationState",
+      }
+    }
+    match={
+      Object {
+        "isExact": false,
+        "params": Object {},
+        "path": "",
+        "url": "",
+      }
+    }
+    modelRecord={
+      Object {
+        "artifacts": Array [
+          Object {
+            "artifact_type": "IMAGE",
+            "key": "validation_plot",
+            "path": "../output/val_obs_11.png",
+          },
+          Object {
+            "artifact_type": "MODEL",
+            "key": "model",
+            "path": "../output/tensorflow-basic_11.hdf5",
+          },
+        ],
+        "code_version": "1.15.6",
+        "datasets": Array [
+          Object {
+            "artifact_type": "DATA",
+            "key": "train_data",
+            "path": "../data/mnist/train.npz",
+          },
+        ],
+        "date_created": "1551397426",
+        "date_updated": "1551397431",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
+        "end_time": "1551397431",
+        "experiment_id": "b3a95aa5-42c8-4438-9713-bac96745f8fe",
+        "hyperparameters": Array [
+          Object {
+            "key": "hidden_size",
+            "value": "1024",
+          },
+          Object {
+            "key": "dropout",
+            "value": "0.4",
+          },
+          Object {
+            "key": "optimizer",
+            "value": "adam",
+          },
+          Object {
+            "key": "batch_size",
+            "value": "51257889",
+          },
+          Object {
+            "key": "num_epochs",
+            "value": "4",
+          },
+          Object {
+            "key": "validation_split",
+            "value": "0.1",
+          },
+        ],
+        "id": "556c26a1-781b-420f-9343-77cad7c22f9e",
+        "metrics": Array [
+          Object {
+            "key": "train_loss",
+            "value": "0.18684466613531112",
+          },
+          Object {
+            "key": "train_acc",
+            "value": "0.9489",
+          },
+        ],
+        "name": "Run 11",
+        "observations": Array [
+          Object {
+            "attribute": Object {
+              "key": "val_train_loss",
+              "value": "0.9519083389706082",
+            },
+            "timestamp": "1551397429",
+          },
+          Object {
+            "attribute": Object {
+              "key": "val_train_loss",
+              "value": "0.34387786463896436",
+            },
+            "timestamp": "1551397429",
+          },
+          Object {
+            "attribute": Object {
+              "key": "val_train_loss",
+              "value": "0.2631756428480148",
+            },
+            "timestamp": "1551397430",
+          },
+          Object {
+            "attribute": Object {
+              "key": "val_train_loss",
+              "value": "0.2168384866449568",
+            },
+            "timestamp": "1551397431",
+          },
+          Object {
+            "attribute": Object {
+              "key": "val_train_acc",
+              "value": "0.7507777774598864",
+            },
+            "timestamp": "1551397429",
+          },
+          Object {
+            "attribute": Object {
+              "key": "val_train_acc",
+              "value": "0.8991111115879483",
+            },
+            "timestamp": "1551397429",
+          },
+          Object {
+            "attribute": Object {
+              "key": "val_train_acc",
+              "value": "0.9242222231229146",
+            },
+            "timestamp": "1551397430",
+          },
+          Object {
+            "attribute": Object {
+              "key": "val_train_acc",
+              "value": "0.9377777781486512",
+            },
+            "timestamp": "1551397431",
+          },
+          Object {
+            "attribute": Object {
+              "key": "val_loss",
+              "value": "0.36536899423599245",
+            },
+            "timestamp": "1551397429",
+          },
+          Object {
+            "attribute": Object {
+              "key": "val_loss",
+              "value": "0.275101797580719",
+            },
+            "timestamp": "1551397429",
+          },
+          Object {
+            "attribute": Object {
+              "key": "val_loss",
+              "value": "0.2304303308725357",
+            },
+            "timestamp": "1551397430",
+          },
+          Object {
+            "attribute": Object {
+              "key": "val_loss",
+              "value": "0.2052534782886505",
+            },
+            "timestamp": "1551397431",
+          },
+          Object {
+            "attribute": Object {
+              "key": "val_acc",
+              "value": "0.8839999880790711",
+            },
+            "timestamp": "1551397429",
+          },
+          Object {
+            "attribute": Object {
+              "key": "val_acc",
+              "value": "0.9180000004768372",
+            },
+            "timestamp": "1551397429",
+          },
+          Object {
+            "attribute": Object {
+              "key": "val_acc",
+              "value": "0.9360000042915344",
+            },
+            "timestamp": "1551397430",
+          },
+          Object {
+            "attribute": Object {
+              "key": "val_acc",
+              "value": "0.9420000019073487",
+            },
+            "timestamp": "1551397431",
+          },
+        ],
+        "owner": "github|14152628",
+        "project_id": "b328df27-f286-4850-8d68-841d2e1a43ba",
+        "start_time": "1551397426",
+        "tags": Array [
+          "enhancement",
+          "obsolete",
+          "debug",
+          "demo",
+        ],
+      }
+    }
+    projects={
+      Array [
+        Object {
+          "date_created": "1551766133077",
+          "date_updated": "1551766133077",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed",
+          "id": "b328df27-f286-4850-8d68-841d2e1a43ba",
+          "name": "MNIST Multiclassification",
+          "owner": "github|14152628",
+          "tags": Array [
+            "enhancement",
+            "exploratory",
+            "deployment",
+            "demo",
+            "debug",
+          ],
+        },
+      ]
+    }
+    staticContext={Object {}}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <React.Fragment>
+        <React.Fragment>
+          <div
+            className="breadcrumb_item"
+          >
+            <Link
+              className="link"
+              replace={false}
+              to="/"
+            >
+              projects
+            </Link>
+          </div>
+          <Icon
+            className="arrow"
+            type="arrow-right"
+          />
+        </React.Fragment>
+        <React.Fragment>
+          <div
+            className="breadcrumb_item"
+          >
+            <Link
+              className="link"
+              replace={false}
+              to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs"
+            >
+              MNIST Multiclassification
+            </Link>
+          </div>
+          <Icon
+            className="arrow"
+            type="arrow-right"
+          />
+        </React.Fragment>
+        <div
+          className="breadcrumb_item active_link"
+        >
+          <Link
+            className="link"
+            replace={false}
+            to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs/556c26a1-781b-420f-9343-77cad7c22f9e"
+          >
+            Run 11
+          </Link>
+        </div>
+      </React.Fragment>,
+      "className": "root",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <React.Fragment>
+            <div
+              className="breadcrumb_item"
+            >
+              <Link
+                className="link"
+                replace={false}
+                to="/"
+              >
+                projects
+              </Link>
+            </div>
+            <Icon
+              className="arrow"
+              type="arrow-right"
+            />
+          </React.Fragment>,
+          <React.Fragment>
+            <div
+              className="breadcrumb_item"
+            >
+              <Link
+                className="link"
+                replace={false}
+                to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs"
+              >
+                MNIST Multiclassification
+              </Link>
+            </div>
+            <Icon
+              className="arrow"
+              type="arrow-right"
+            />
+          </React.Fragment>,
+          <div
+            className="breadcrumb_item active_link"
+          >
+            <Link
+              className="link"
+              replace={false}
+              to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs/556c26a1-781b-420f-9343-77cad7c22f9e"
+            >
+              Run 11
+            </Link>
+          </div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <div
+                className="breadcrumb_item"
+              >
+                <Link
+                  className="link"
+                  replace={false}
+                  to="/"
+                >
+                  projects
+                </Link>
+              </div>,
+              <Icon
+                className="arrow"
+                type="arrow-right"
+              />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  className="link"
+                  replace={false}
+                  to="/"
+                >
+                  projects
+                </Link>,
+                "className": "breadcrumb_item",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "projects",
+                  "className": "link",
+                  "replace": false,
+                  "to": "/",
+                },
+                "ref": null,
+                "rendered": "projects",
+                "type": [Function],
+              },
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "arrow",
+                "type": "arrow-right",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": Symbol(react.fragment),
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <div
+                className="breadcrumb_item"
+              >
+                <Link
+                  className="link"
+                  replace={false}
+                  to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs"
+                >
+                  MNIST Multiclassification
+                </Link>
+              </div>,
+              <Icon
+                className="arrow"
+                type="arrow-right"
+              />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  className="link"
+                  replace={false}
+                  to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs"
+                >
+                  MNIST Multiclassification
+                </Link>,
+                "className": "breadcrumb_item",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "MNIST Multiclassification",
+                  "className": "link",
+                  "replace": false,
+                  "to": "/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs",
+                },
+                "ref": null,
+                "rendered": "MNIST Multiclassification",
+                "type": [Function],
+              },
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "arrow",
+                "type": "arrow-right",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": Symbol(react.fragment),
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "host",
+          "props": Object {
+            "children": <Link
+              className="link"
+              replace={false}
+              to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs/556c26a1-781b-420f-9343-77cad7c22f9e"
+            >
+              Run 11
+            </Link>,
+            "className": "breadcrumb_item active_link",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Run 11",
+              "className": "link",
+              "replace": false,
+              "to": "/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs/556c26a1-781b-420f-9343-77cad7c22f9e",
+            },
+            "ref": null,
+            "rendered": "Run 11",
+            "type": [Function],
+          },
+          "type": "div",
+        },
+      ],
+      "type": Symbol(react.fragment),
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <React.Fragment>
+          <React.Fragment>
+            <div
+              className="breadcrumb_item"
+            >
+              <Link
+                className="link"
+                replace={false}
+                to="/"
+              >
+                projects
+              </Link>
+            </div>
+            <Icon
+              className="arrow"
+              type="arrow-right"
+            />
+          </React.Fragment>
+          <React.Fragment>
+            <div
+              className="breadcrumb_item"
+            >
+              <Link
+                className="link"
+                replace={false}
+                to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs"
+              >
+                MNIST Multiclassification
+              </Link>
+            </div>
+            <Icon
+              className="arrow"
+              type="arrow-right"
+            />
+          </React.Fragment>
+          <div
+            className="breadcrumb_item active_link"
+          >
+            <Link
+              className="link"
+              replace={false}
+              to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs/556c26a1-781b-420f-9343-77cad7c22f9e"
+            >
+              Run 11
+            </Link>
+          </div>
+        </React.Fragment>,
+        "className": "root",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <React.Fragment>
+              <div
+                className="breadcrumb_item"
+              >
+                <Link
+                  className="link"
+                  replace={false}
+                  to="/"
+                >
+                  projects
+                </Link>
+              </div>
+              <Icon
+                className="arrow"
+                type="arrow-right"
+              />
+            </React.Fragment>,
+            <React.Fragment>
+              <div
+                className="breadcrumb_item"
+              >
+                <Link
+                  className="link"
+                  replace={false}
+                  to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs"
+                >
+                  MNIST Multiclassification
+                </Link>
+              </div>
+              <Icon
+                className="arrow"
+                type="arrow-right"
+              />
+            </React.Fragment>,
+            <div
+              className="breadcrumb_item active_link"
+            >
+              <Link
+                className="link"
+                replace={false}
+                to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs/556c26a1-781b-420f-9343-77cad7c22f9e"
+              >
+                Run 11
+              </Link>
+            </div>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "0",
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="breadcrumb_item"
+                >
+                  <Link
+                    className="link"
+                    replace={false}
+                    to="/"
+                  >
+                    projects
+                  </Link>
+                </div>,
+                <Icon
+                  className="arrow"
+                  type="arrow-right"
+                />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Link
+                    className="link"
+                    replace={false}
+                    to="/"
+                  >
+                    projects
+                  </Link>,
+                  "className": "breadcrumb_item",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "projects",
+                    "className": "link",
+                    "replace": false,
+                    "to": "/",
+                  },
+                  "ref": null,
+                  "rendered": "projects",
+                  "type": [Function],
+                },
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "className": "arrow",
+                  "type": "arrow-right",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": Symbol(react.fragment),
+          },
+          Object {
+            "instance": null,
+            "key": "1",
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="breadcrumb_item"
+                >
+                  <Link
+                    className="link"
+                    replace={false}
+                    to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs"
+                  >
+                    MNIST Multiclassification
+                  </Link>
+                </div>,
+                <Icon
+                  className="arrow"
+                  type="arrow-right"
+                />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Link
+                    className="link"
+                    replace={false}
+                    to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs"
+                  >
+                    MNIST Multiclassification
+                  </Link>,
+                  "className": "breadcrumb_item",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "MNIST Multiclassification",
+                    "className": "link",
+                    "replace": false,
+                    "to": "/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs",
+                  },
+                  "ref": null,
+                  "rendered": "MNIST Multiclassification",
+                  "type": [Function],
+                },
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "className": "arrow",
+                  "type": "arrow-right",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": Symbol(react.fragment),
+          },
+          Object {
+            "instance": null,
+            "key": "2",
+            "nodeType": "host",
+            "props": Object {
+              "children": <Link
+                className="link"
+                replace={false}
+                to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs/556c26a1-781b-420f-9343-77cad7c22f9e"
+              >
+                Run 11
+              </Link>,
+              "className": "breadcrumb_item active_link",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Run 11",
+                "className": "link",
+                "replace": false,
+                "to": "/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs/556c26a1-781b-420f-9343-77cad7c22f9e",
+              },
+              "ref": null,
+              "rendered": "Run 11",
+              "type": [Function],
+            },
+            "type": "div",
+          },
+        ],
+        "type": Symbol(react.fragment),
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
 `;
 
 exports[`(components/Breadcrumb) should render "projects > \${project name}" breadcrumbs on experiment runs page 1`] = `
-<div
-  className="root"
->
-  <div
-    className="breadcrumb_item"
-  >
-    <Link
-      className="link"
-      replace={false}
-      to="/"
-    >
-      projects
-    </Link>
-  </div>
-  <Icon
-    className="arrow"
-    type="arrow-right"
-  />
-  <div
-    className="breadcrumb_item active_link"
-    key="1"
-  >
-    <Link
-      className="link"
-      replace={false}
-      to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs"
-    >
-      MNIST Multiclassification
-    </Link>
-  </div>
-</div>
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Breadcrumb
+    experimentRuns={null}
+    history={
+      Object {
+        "listen": [MockFunction] {
+          "calls": Array [
+            Array [
+              [Function],
+            ],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        },
+        "location": Object {
+          "hash": "",
+          "key": "",
+          "pathname": "/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs",
+          "search": "",
+          "state": "",
+        },
+      }
+    }
+    location={
+      Object {
+        "hash": "hash",
+        "key": "LocationKey",
+        "pathname": "Pathname",
+        "search": "Search",
+        "state": "LocationState",
+      }
+    }
+    match={
+      Object {
+        "isExact": false,
+        "params": Object {},
+        "path": "",
+        "url": "",
+      }
+    }
+    modelRecord={null}
+    projects={
+      Array [
+        Object {
+          "date_created": "1551766133077",
+          "date_updated": "1551766133077",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed",
+          "id": "b328df27-f286-4850-8d68-841d2e1a43ba",
+          "name": "MNIST Multiclassification",
+          "owner": "github|14152628",
+          "tags": Array [
+            "enhancement",
+            "exploratory",
+            "deployment",
+            "demo",
+            "debug",
+          ],
+        },
+      ]
+    }
+    staticContext={Object {}}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <React.Fragment>
+        <React.Fragment>
+          <div
+            className="breadcrumb_item"
+          >
+            <Link
+              className="link"
+              replace={false}
+              to="/"
+            >
+              projects
+            </Link>
+          </div>
+          <Icon
+            className="arrow"
+            type="arrow-right"
+          />
+        </React.Fragment>
+        <div
+          className="breadcrumb_item active_link"
+        >
+          <Link
+            className="link"
+            replace={false}
+            to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs"
+          >
+            MNIST Multiclassification
+          </Link>
+        </div>
+      </React.Fragment>,
+      "className": "root",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <React.Fragment>
+            <div
+              className="breadcrumb_item"
+            >
+              <Link
+                className="link"
+                replace={false}
+                to="/"
+              >
+                projects
+              </Link>
+            </div>
+            <Icon
+              className="arrow"
+              type="arrow-right"
+            />
+          </React.Fragment>,
+          <div
+            className="breadcrumb_item active_link"
+          >
+            <Link
+              className="link"
+              replace={false}
+              to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs"
+            >
+              MNIST Multiclassification
+            </Link>
+          </div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <div
+                className="breadcrumb_item"
+              >
+                <Link
+                  className="link"
+                  replace={false}
+                  to="/"
+                >
+                  projects
+                </Link>
+              </div>,
+              <Icon
+                className="arrow"
+                type="arrow-right"
+              />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  className="link"
+                  replace={false}
+                  to="/"
+                >
+                  projects
+                </Link>,
+                "className": "breadcrumb_item",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "projects",
+                  "className": "link",
+                  "replace": false,
+                  "to": "/",
+                },
+                "ref": null,
+                "rendered": "projects",
+                "type": [Function],
+              },
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "arrow",
+                "type": "arrow-right",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": Symbol(react.fragment),
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "host",
+          "props": Object {
+            "children": <Link
+              className="link"
+              replace={false}
+              to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs"
+            >
+              MNIST Multiclassification
+            </Link>,
+            "className": "breadcrumb_item active_link",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "MNIST Multiclassification",
+              "className": "link",
+              "replace": false,
+              "to": "/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs",
+            },
+            "ref": null,
+            "rendered": "MNIST Multiclassification",
+            "type": [Function],
+          },
+          "type": "div",
+        },
+      ],
+      "type": Symbol(react.fragment),
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <React.Fragment>
+          <React.Fragment>
+            <div
+              className="breadcrumb_item"
+            >
+              <Link
+                className="link"
+                replace={false}
+                to="/"
+              >
+                projects
+              </Link>
+            </div>
+            <Icon
+              className="arrow"
+              type="arrow-right"
+            />
+          </React.Fragment>
+          <div
+            className="breadcrumb_item active_link"
+          >
+            <Link
+              className="link"
+              replace={false}
+              to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs"
+            >
+              MNIST Multiclassification
+            </Link>
+          </div>
+        </React.Fragment>,
+        "className": "root",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <React.Fragment>
+              <div
+                className="breadcrumb_item"
+              >
+                <Link
+                  className="link"
+                  replace={false}
+                  to="/"
+                >
+                  projects
+                </Link>
+              </div>
+              <Icon
+                className="arrow"
+                type="arrow-right"
+              />
+            </React.Fragment>,
+            <div
+              className="breadcrumb_item active_link"
+            >
+              <Link
+                className="link"
+                replace={false}
+                to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs"
+              >
+                MNIST Multiclassification
+              </Link>
+            </div>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "0",
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="breadcrumb_item"
+                >
+                  <Link
+                    className="link"
+                    replace={false}
+                    to="/"
+                  >
+                    projects
+                  </Link>
+                </div>,
+                <Icon
+                  className="arrow"
+                  type="arrow-right"
+                />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Link
+                    className="link"
+                    replace={false}
+                    to="/"
+                  >
+                    projects
+                  </Link>,
+                  "className": "breadcrumb_item",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "projects",
+                    "className": "link",
+                    "replace": false,
+                    "to": "/",
+                  },
+                  "ref": null,
+                  "rendered": "projects",
+                  "type": [Function],
+                },
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "className": "arrow",
+                  "type": "arrow-right",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": Symbol(react.fragment),
+          },
+          Object {
+            "instance": null,
+            "key": "1",
+            "nodeType": "host",
+            "props": Object {
+              "children": <Link
+                className="link"
+                replace={false}
+                to="/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs"
+              >
+                MNIST Multiclassification
+              </Link>,
+              "className": "breadcrumb_item active_link",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "MNIST Multiclassification",
+                "className": "link",
+                "replace": false,
+                "to": "/project/b328df27-f286-4850-8d68-841d2e1a43ba/exp-runs",
+              },
+              "ref": null,
+              "rendered": "MNIST Multiclassification",
+              "type": [Function],
+            },
+            "type": "div",
+          },
+        ],
+        "type": Symbol(react.fragment),
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
 `;
 
 exports[`(components/Breadcrumb) should render "projects" breadcrumb on projects page 1`] = `
-<div
-  className="root"
->
-  <div
-    className="breadcrumb_item active_link"
-    key="0"
-  >
-    <Link
-      className="link"
-      replace={false}
-      to="/"
-    >
-      projects
-    </Link>
-  </div>
-</div>
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Breadcrumb
+    experimentRuns={null}
+    history={
+      Object {
+        "listen": [MockFunction] {
+          "calls": Array [
+            Array [
+              [Function],
+            ],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        },
+        "location": Object {
+          "hash": "",
+          "key": "",
+          "pathname": "/",
+          "search": "",
+          "state": "",
+        },
+      }
+    }
+    location={
+      Object {
+        "hash": "hash",
+        "key": "LocationKey",
+        "pathname": "Pathname",
+        "search": "Search",
+        "state": "LocationState",
+      }
+    }
+    match={
+      Object {
+        "isExact": false,
+        "params": Object {},
+        "path": "",
+        "url": "",
+      }
+    }
+    modelRecord={null}
+    projects={null}
+    staticContext={Object {}}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <React.Fragment>
+        <div
+          className="breadcrumb_item active_link"
+        >
+          <Link
+            className="link"
+            replace={false}
+            to="/"
+          >
+            projects
+          </Link>
+        </div>
+      </React.Fragment>,
+      "className": "root",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <div
+            className="breadcrumb_item active_link"
+          >
+            <Link
+              className="link"
+              replace={false}
+              to="/"
+            >
+              projects
+            </Link>
+          </div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "host",
+          "props": Object {
+            "children": <Link
+              className="link"
+              replace={false}
+              to="/"
+            >
+              projects
+            </Link>,
+            "className": "breadcrumb_item active_link",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "projects",
+              "className": "link",
+              "replace": false,
+              "to": "/",
+            },
+            "ref": null,
+            "rendered": "projects",
+            "type": [Function],
+          },
+          "type": "div",
+        },
+      ],
+      "type": Symbol(react.fragment),
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <React.Fragment>
+          <div
+            className="breadcrumb_item active_link"
+          >
+            <Link
+              className="link"
+              replace={false}
+              to="/"
+            >
+              projects
+            </Link>
+          </div>
+        </React.Fragment>,
+        "className": "root",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <div
+              className="breadcrumb_item active_link"
+            >
+              <Link
+                className="link"
+                replace={false}
+                to="/"
+              >
+                projects
+              </Link>
+            </div>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "0",
+            "nodeType": "host",
+            "props": Object {
+              "children": <Link
+                className="link"
+                replace={false}
+                to="/"
+              >
+                projects
+              </Link>,
+              "className": "breadcrumb_item active_link",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "projects",
+                "className": "link",
+                "replace": false,
+                "to": "/",
+              },
+              "ref": null,
+              "rendered": "projects",
+              "type": [Function],
+            },
+            "type": "div",
+          },
+        ],
+        "type": Symbol(react.fragment),
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
 `;

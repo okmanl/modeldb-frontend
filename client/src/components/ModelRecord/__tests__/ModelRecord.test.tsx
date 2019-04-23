@@ -69,14 +69,6 @@ describe('(components/ModelRecord)', () => {
     });
   });
 
-  it('should start to check deploy status until deployed when model is loaded', () => {
-    const { actionSpies, component } = makeShallowComponent({ data: null });
-
-    component.setProps({ data: mockModelRecord });
-
-    expect(actionSpies.checkDeployStatusUntilDeployed).toHaveBeenCalled();
-  });
-
   it('should render summary', () => {
     const { component } = makeShallowComponent({ data: mockModelRecord });
 
