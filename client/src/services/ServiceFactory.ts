@@ -26,9 +26,6 @@ export default class ServiceFactory {
   }
 
   public static getAuthenticationService(): IAuthenticationService {
-    if (JSON.parse(process.env.REACT_APP_USE_API_DATA)) {
-      return new Auth0AuthenticationService();
-    }
     return new MockAuthenticationService();
   }
 

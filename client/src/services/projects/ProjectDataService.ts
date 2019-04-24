@@ -22,20 +22,6 @@ export default class ProjectDataService extends BaseDataService
     );
   }
 
-  public loadProjectOwner(userId: string): AxiosPromise<User> {
-    return axios.get<User>(
-      '/uac-proxy/v1/uac/getUser',
-      this.getLoadProjectOwnerConfig(userId)
-    );
-  }
-
-  private getLoadProjectOwnerConfig(userId: string): AxiosRequestConfig {
-    return {
-      params: { user_id: userId },
-      transformResponse: [convertServerUser],
-    };
-  }
-
   private responseToProjectConfig(filters?: IFilterData[]): AxiosRequestConfig {
     return {
       transformResponse: [
@@ -49,6 +35,14 @@ export default class ProjectDataService extends BaseDataService
               data.projects,
               Project
             ) as Project[];
+            for (const project of projects) {
+              const author = new User(
+                'testid',
+                process.env.REACT_APP_USER_EMAIL
+              );
+              author.name = process.env.REACT_APP_USERNAME;
+              project.Author = author;
+            }
 
             return filters && filters.length > 0
               ? projects.filter(p => this.checkProject(p, filters))

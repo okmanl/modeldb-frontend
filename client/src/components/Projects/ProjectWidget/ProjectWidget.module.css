@@ -112,9 +112,6 @@
   grid-area: author_block;
   grid-template-rows: 36px auto;
 }
-.loading_owner .author_block {
-  display: block;
-}
 
 .author_name {
   grid-area: author_name;
@@ -131,7 +128,4 @@
 .model_count_block {
   grid-area: count_block;
   align-self: end;
-}
-
-.loading_owner {
 }

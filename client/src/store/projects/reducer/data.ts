@@ -1,11 +1,8 @@
 import { Reducer } from 'redux';
 
-import cloneClassInstance from 'utils/cloneClassInstance';
-
 import {
   FeatureAction,
   IProjectsState,
-  loadProjectOwnerActionTypes,
   loadProjectsActionTypes,
   updateProjectActionTypes,
   updateProjectByIdActionTypes,
@@ -32,21 +29,6 @@ const dataReducer: Reducer<IProjectsState['data'], FeatureAction> = (
         projects: (state.projects || []).map(p =>
           p.id === action.payload.id ? action.payload : p
         ),
-      };
-    }
-    case loadProjectOwnerActionTypes.SUCCESS: {
-      const updatedProject = state.projects!.map(project => {
-        if (project.id === action.payload.projectId) {
-          const updatedProject = cloneClassInstance(project);
-          updatedProject.Author = action.payload.user;
-          return updatedProject;
-        } else {
-          return project;
-        }
-      });
-      return {
-        ...state,
-        projects: updatedProject,
       };
     }
     default:

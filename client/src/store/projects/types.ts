@@ -1,5 +1,4 @@
 import { Project } from 'models/Project';
-import User from 'models/User';
 import {
   ICommunication,
   MakeCommunicationActions,
@@ -12,7 +11,6 @@ export interface IProjectsState {
   };
   communications: {
     loadingProjects: ICommunication;
-    loadingProjectOwner: Record<string, ICommunication>;
   };
 }
 
@@ -24,21 +22,6 @@ export const loadProjectsActionTypes = makeCommunicationActionTypes({
 export type ILoadProjectsActions = MakeCommunicationActions<
   typeof loadProjectsActionTypes,
   { success: Project[] }
->;
-
-export const loadProjectOwnerActionTypes = makeCommunicationActionTypes({
-  REQUEST: '@@projects/LOAD_PROJECT_OWNER_REQUEST',
-  SUCCESS: '@@projects/LOAD_PROJECT_OWNER_SUCСESS',
-  FAILURE: '@@projects/LOAD_PROJECT_OWNER_FAILURE',
-});
-type ProjectId = string;
-export type ILoadProjectOwnerActions = MakeCommunicationActions<
-  typeof loadProjectOwnerActionTypes,
-  {
-    request: ProjectId;
-    success: { projectId: string; user: User };
-    failure: { projectId: string; error: string };
-  }
 >;
 
 export enum updateProjectActionTypes {
@@ -60,5 +43,4 @@ export interface IUpdateProjectByIdAction {
 export type FeatureAction =
   | ILoadProjectsActions
   | IUpdateProjectAction
-  | IUpdateProjectByIdAction
-  | ILoadProjectOwnerActions;
+  | IUpdateProjectByIdAction;

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { bind } from 'decko';
 
-import User from 'models/User';
-import { convertServerUser } from 'services/converters/user';
+import { CurrentUser } from 'models/User';
+import { convertServerCurrentUser } from 'services/converters/user';
 
 import { IAuthenticationService } from './IAuthenticationService';
 
@@ -14,9 +14,9 @@ export default class Auth0AuthenticationService
   }
 
   @bind
-  public async loadUser(): Promise<User> {
+  public async loadUser(): Promise<CurrentUser> {
     const res = await axios.get<any>('/api/auth/getUser');
-    return convertServerUser(res.data);
+    return convertServerCurrentUser(res.data);
   }
 
   @bind

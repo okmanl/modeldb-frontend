@@ -27,7 +27,7 @@ type AllProps = IPropsFromState & RouteComponentProps & IActionProps;
 
 class App extends React.PureComponent<AllProps> {
   public componentDidMount() {
-    // this.props.checkUserAuthentication();
+    this.props.checkUserAuthentication();
   }
 
   public render() {
@@ -35,7 +35,7 @@ class App extends React.PureComponent<AllProps> {
     if (isCheckingUserAuthentication) {
       return <GlobalPreloader />;
     }
-    return <AuthorizedLayout />;
+    return isUserAuthenticated ? <AuthorizedLayout /> : <AnonymousLayout />;
   }
 }
 
